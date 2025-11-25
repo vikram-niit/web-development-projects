@@ -1,0 +1,40 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        project: [frontend, backend]
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Python
+      if: matrix.project == 'backend'
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Set up Node
+      if: matrix.project == 'frontend'
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
+
+    - name: Install dependencies
+      run: |
+        cd ${{ matrix.project }}
+        if [ "${{ matrix.project }}" == "frontend" ]; then npm install; fi
+        if [ "${{ matrix.project }}" == "backend" ]; then pip install -r requirements.txt; fi
+
+    - name: Run tests / Build
+      run: |
+        cd ${{ matrix.project }}
+        if [ "${{ matrix.project }}" == "frontend" ]; then npm run build; fi
+        if [ "${{ matrix.project }}" == "backend" ]; then echo "No tests configured"; fi
