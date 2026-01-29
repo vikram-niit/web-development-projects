@@ -132,3 +132,65 @@ python scripts/create\_index.py
 
 
 
+
+
+\# Start ec2 instance
+
+Edit inbound rules and allow ssh traffic on port 22 from all/custom ips
+
+\# Installing mongodb on ec2-instance
+
+&nbsp;curl -LO https://downloads.mongodb.com/linux/mongodb-linux-x86\_64-6.0.7.tgz
+
+\# Install docker
+
+sudo dnf update -y
+
+sudo dnf install -y docker
+
+sudo systemctl start docker
+
+sudo systemctl status docker
+
+
+
+oneliner
+
+sudo dnf update -y \&\& sudo dnf install -y docker \&\& sudo systemctl start docker \&\& sudo systemctl enable docker \&\& echo "Docker installed and started"
+
+
+
+
+
+&nbsp;cat <<EOF | sudo tee /etc/yum.repos.d/mongodb-org.repo
+
+\[mongodb-org-7.0]
+
+name=MongoDB Repository
+
+baseurl=https://repo.mongodb.org/yum/amazon/2023/mongodb-org/7.0/x86\_64/
+
+gpgcheck=1
+
+enabled=1
+
+gpgkey=https://www.mongodb.org/static/pgp/server-7.0.asc
+
+EOF
+
+\[mongodb-org-7.0]
+
+name=MongoDB Repository
+
+baseurl=https://repo.mongodb.org/yum/amazon/2023/mongodb-org/7.0/x86\_64/
+
+gpgcheck=1
+
+enabled=1
+
+gpgkey=https://www.mongodb.org/static/pgp/server-7.0.asc
+
+
+
+&nbsp;sudo dnf install -y mongodb-org
+

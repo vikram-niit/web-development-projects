@@ -1,0 +1,5 @@
+fastapi
+uvicorn[standard]
+pymongo
+opensearch-py
+python-dotenv
