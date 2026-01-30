@@ -206,9 +206,33 @@ st-1.docdb-elastic.amazonaws.com:27017' --tls --authenticationMechanism SCRAM-SH
 
 if DOCUMENTDB\_URI is None export the environment variables in the cmd line
 
-&nbsp;export DOCUMENTDB\_URI='mongodb://test:Documentdb2026%21@test-doc-db-cluster-2026-01-26-368673729078.us-east-1.docdb-elastic.amazonaws.com:27017?tls=true\&retryWrites=false\&authMechanism=SC
+&nbsp;export DOCUMENTDB\_URI='mongodb://test:Documentdb2026%21@test-doc-db-cluster-2026
 
-RAM-SHA-1'
+-01-26-368673729078.us-east-1.docdb-elastic.amazonaws.com:27017?tls=true\&retryWrites=false\&authMechanism=SCRAM-SHA-1'
+
+export OPENSEARCH\_HOST=https://search-testdomain-rvplcvqbevpp6auo3s5vjqsegy.us-east-1.es.amazonaws.com:443
+
+export OS\_USER=opensearchuser
+
+export OS\_PASSWORD=Opensearch2026!
+
+
+
+curl -i -X POST http://ec2-54-167-51-235.compute-1.amazonaws.com:8000/products/ -H "Conte
+
+nt-Type: application/json" -d '{
+
+&nbsp; "id": "p001",
+
+&nbsp; "name": "Wireless Mouse",
+
+&nbsp; "description": "Ergonomic wireless mouse with 2-year battery",
+
+&nbsp; "tags": \["electronics", "accessories", "mouse"],
+
+&nbsp; "price": 29.99
+
+}'
 
 
 

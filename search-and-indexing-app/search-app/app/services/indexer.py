@@ -1,3 +1,5 @@
+from app.database.opensearch import client
+
 def index_product(product):
     client.index(
         index="products",
