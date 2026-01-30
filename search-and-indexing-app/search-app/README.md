@@ -140,7 +140,7 @@ Edit inbound rules and allow ssh traffic on port 22 from all/custom ips
 
 \# Installing mongodb on ec2-instance
 
-&nbsp;curl -LO https://downloads.mongodb.com/linux/mongodb-linux-x86\_64-6.0.7.tgz
+ curl -LO https://downloads.mongodb.com/linux/mongodb-linux-x86\_64-6.0.7.tgz
 
 \# Install docker
 
@@ -162,7 +162,7 @@ sudo dnf update -y \&\& sudo dnf install -y docker \&\& sudo systemctl start doc
 
 
 
-&nbsp;cat <<EOF | sudo tee /etc/yum.repos.d/mongodb-org.repo
+ cat <<EOF | sudo tee /etc/yum.repos.d/mongodb-org.repo
 
 \[mongodb-org-7.0]
 
@@ -192,5 +192,15 @@ gpgkey=https://www.mongodb.org/static/pgp/server-7.0.asc
 
 
 
-&nbsp;sudo dnf install -y mongodb-org
+sudo dnf install -y mongodb-org
+
+
+
+\# Connecting to aws document db
+
+ mongosh 'mongodb://test:Documentdb2026!@test-doc-db-cluster-2026-01-26-368673729078.us-ea
+
+st-1.docdb-elastic.amazonaws.com:27017' --tls --authenticationMechanism SCRAM-SHA-1 --retryWrites=false
+
+
 
