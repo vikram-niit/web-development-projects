@@ -204,3 +204,11 @@ st-1.docdb-elastic.amazonaws.com:27017' --tls --authenticationMechanism SCRAM-SH
 
 
 
+if DOCUMENTDB\_URI is None export the environment variables in the cmd line
+
+&nbsp;export DOCUMENTDB\_URI='mongodb://test:Documentdb2026%21@test-doc-db-cluster-2026-01-26-368673729078.us-east-1.docdb-elastic.amazonaws.com:27017?tls=true\&retryWrites=false\&authMechanism=SC
+
+RAM-SHA-1'
+
+
+
